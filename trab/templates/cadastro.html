@@ -1,0 +1,17 @@
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+{% from "_errors.html" import render_field %}
+
+{% block content %}
+<form action="/main.py" method="POST">
+ <h1>Formulário</h2>
+     {{ render_field(form.csrf_token }}
+     {{ render_field(form.nome.label }}<br>
+     {{ render_field(form.nome }}<br><br>
+     {{ _.form_field(form.salario,value=pessoa.salario}}
+     {{render_field(form.enviar)}}
+</form>
+{% endblock%}
+
+   
